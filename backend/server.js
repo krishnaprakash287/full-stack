@@ -7,11 +7,14 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 
-// Define allowed origins
-const allowedOrigins = [
-  'http://localhost:5173',
-  'https://restaraunt-hyyt.onrender.com',
-];
+const express = require('express');
+const cors = require('cors');
+const app = express();
+
+// Define allowed origins based on environment
+const allowedOrigins = process.env.NODE_ENV === 'production'
+  ? ['https://restaraunt-hyyt.onrender.com']
+  : ['http://localhost:5173'];
 
 // Configure CORS middleware
 app.use(cors({
@@ -22,13 +25,13 @@ app.use(cors({
       callback(new Error('Not allowed by CORS'));
     }
   },
-  credentials: true, // Allow cookies/auth headers if needed
+  credentials: true,
 }));
 
-// Other middleware and routes
+// Additional middleware (e.g., express.json())
 app.use(express.json());
 
-// Define routes here
+// Define your routes here
 // For example: app.post('/api/reserve', (req, res) => { ... });
 
 // Start the server

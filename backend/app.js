@@ -12,7 +12,7 @@ dotenv.config({ path: "./config/config.env" });
 
 app.use(
   cors({
-    origin: "http://localhost:5173", 
+    origin: "https://restaraunt-hyyt.onrender.com", 
     methods: ["GET", "POST"],      
     credentials: true,              
   })

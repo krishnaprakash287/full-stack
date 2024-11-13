@@ -21,7 +21,7 @@ app.use(
 app.use(express.json());
 
 // Routes
-app.use("/api/v1/reservation", reservationRouter);
+app.use("https://full-stack-backend-uxba.onrender.com", reservationRouter);
 app.get("/", (req, res) => {
   res.status(200).json({ success: true, message: "HELLO WORLD AGAIN" });
 });
